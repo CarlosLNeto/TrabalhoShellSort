@@ -194,14 +194,6 @@ void shellSort(int vetor[], int tamanho, int *comparacoes, int *trocas) {
     }
 }
 
-//--------------------------------------------------------------------------------
-void printArray(int arr[], int n) {
-    int i;
-    for (i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
 
 int main() {
     srand(time(NULL));
@@ -259,6 +251,17 @@ int main() {
     int VetorQuick3_2[SIZE_3];
     int VetorQuick3_3[SIZE_3];
 
+    int VetorShell1_1[SIZE_1];
+    int VetorShell1_2[SIZE_1];
+    int VetorShell1_3[SIZE_1];
+    int VetorShell2_1[SIZE_2];
+    int VetorShell2_2[SIZE_2];
+    int VetorShell2_3[SIZE_2];
+    int VetorShell3_1[SIZE_3];
+    int VetorShell3_2[SIZE_3];
+    int VetorShell3_3[SIZE_3];
+
+
 
     // tamanho 100
     preencherVetorAleatorio(VetorInsertion1_1, SIZE_1);
@@ -292,6 +295,10 @@ int main() {
         VetorQuick1_1[i] = VetorInsertion1_1[i];
         VetorQuick1_2[i] = VetorInsertion1_2[i];
         VetorQuick1_3[i] = VetorInsertion1_3[i];
+        
+        VetorShell1_1[i] = VetorInsertion1_1[i];
+        VetorShell1_2[i] = VetorInsertion1_2[i];
+        VetorShell1_3[i] = VetorInsertion1_3[i];
     }
     for (int i = 0; i < SIZE_2; i++) {
         VetorSelection2_1[i] = VetorInsertion2_1[i];
@@ -309,6 +316,10 @@ int main() {
         VetorQuick2_1[i] = VetorInsertion2_1[i];
         VetorQuick2_2[i] = VetorInsertion2_2[i];
         VetorQuick2_3[i] = VetorInsertion2_3[i];
+        
+        VetorShell2_1[i] = VetorInsertion2_1[i];
+        VetorShell2_2[i] = VetorInsertion2_2[i];
+        VetorShell2_3[i] = VetorInsertion2_3[i];
     }
     for (int i = 0; i < SIZE_3; i++) {
         VetorSelection3_1[i] = VetorInsertion3_1[i];
@@ -326,6 +337,10 @@ int main() {
         VetorQuick3_1[i] = VetorInsertion3_1[i];
         VetorQuick3_2[i] = VetorInsertion3_2[i];
         VetorQuick3_3[i] = VetorInsertion3_3[i];
+        
+        VetorShell3_1[i] = VetorInsertion3_1[i];
+        VetorShell3_2[i] = VetorInsertion3_2[i];
+        VetorShell3_3[i] = VetorInsertion3_3[i];
     }
 
     //INSERTION SORT
@@ -865,6 +880,111 @@ int main() {
     printf("Quick Sort Ordenado Descendente (tamanho %d):\n", SIZE_3);
     printf("Comparacoes: %d\n", comparacoesQuick);
     printf("Trocas: %d\n", trocasQuick);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+
+    int comparacoesShell = 0, trocasShell = 0;
+
+    // TAMANHO 100
+    comparacoesShell = 0, trocasShell = 0;
+
+    inicio1 = clock();
+    shellSort(VetorShell1_1, SIZE_1, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell1_2, SIZE_1, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Ordenado Ascendente (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell1_3, SIZE_1, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Ordenado Descendente (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    // TAMANHO 1000
+    inicio1 = clock();
+    shellSort(VetorShell2_1, SIZE_2, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell2_2, SIZE_2, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Ordenado Ascendente (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell2_3, SIZE_2, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Ordenado Descendente (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    // TAMANHO 10000
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell3_1, SIZE_3, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell3_2, SIZE_3, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Ordenado Ascendente (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesShell = 0, trocasShell = 0;
+    inicio1 = clock();
+    shellSort(VetorShell3_3, SIZE_3, &comparacoesShell, &trocasShell);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Shell Sort Ordenado Descendente (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesShell);
+    printf("Trocas: %d\n", trocasShell);
     printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
 
