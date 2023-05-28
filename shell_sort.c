@@ -206,6 +206,9 @@ void printArray(int arr[], int n) {
 int main() {
     srand(time(NULL));
 
+    clock_t inicio1, fim1;
+    double tempo1;
+
     int VetorInsertion1_1[SIZE_1];
     int VetorInsertion1_2[SIZE_1];
     int VetorInsertion1_3[SIZE_1];
@@ -215,6 +218,27 @@ int main() {
     int VetorInsertion3_1[SIZE_3];
     int VetorInsertion3_2[SIZE_3];
     int VetorInsertion3_3[SIZE_3];
+
+    int VetorSelection1_1[SIZE_1];
+    int VetorSelection1_2[SIZE_1];
+    int VetorSelection1_3[SIZE_1];
+    int VetorSelection2_1[SIZE_2];
+    int VetorSelection2_2[SIZE_2];
+    int VetorSelection2_3[SIZE_2];
+    int VetorSelection3_1[SIZE_3];
+    int VetorSelection3_2[SIZE_3];
+    int VetorSelection3_3[SIZE_3];
+    
+    int VetorBubble1_1[SIZE_1];
+    int VetorBubble1_2[SIZE_1];
+    int VetorBubble1_3[SIZE_1];
+    int VetorBubble2_1[SIZE_2];
+    int VetorBubble2_2[SIZE_2];
+    int VetorBubble2_3[SIZE_2];
+    int VetorBubble3_1[SIZE_3];
+    int VetorBubble3_2[SIZE_3];
+    int VetorBubble3_3[SIZE_3];
+
 
     // tamanho 100
     preencherVetorAleatorio(VetorInsertion1_1, SIZE_1);
@@ -230,123 +254,359 @@ int main() {
     preencherVetorAleatorio(VetorInsertion3_1, SIZE_3);
     preencherVetorOrdenadoAscendente(VetorInsertion3_2, SIZE_3);
     preencherVetorOrdenadoDescendente(VetorInsertion3_3, SIZE_3);
+
+
+    for (int i = 0; i < SIZE_1; i++) {
+        VetorSelection1_1[i] = VetorInsertion1_1[i];
+        VetorSelection1_2[i] = VetorInsertion1_2[i];
+        VetorSelection1_3[i] = VetorInsertion1_3[i];
+
+        VetorBubble1_1[i] = VetorInsertion1_1[i];
+        VetorBubble1_2[i] = VetorInsertion1_2[i];
+        VetorBubble1_3[i] = VetorInsertion1_3[i];
+    }
+    for (int i = 0; i < SIZE_2; i++) {
+        VetorSelection2_1[i] = VetorInsertion2_1[i];
+        VetorSelection2_2[i] = VetorInsertion2_2[i];
+        VetorSelection2_3[i] = VetorInsertion2_3[i];
+
+        VetorBubble2_1[i] = VetorInsertion2_1[i];
+        VetorBubble2_2[i] = VetorInsertion2_2[i];
+        VetorBubble2_3[i] = VetorInsertion2_3[i];
+    }
+    for (int i = 0; i < SIZE_3; i++) {
+        VetorSelection3_1[i] = VetorInsertion3_1[i];
+        VetorSelection3_2[i] = VetorInsertion3_2[i];
+        VetorSelection3_3[i] = VetorInsertion3_3[i];
+
+        VetorBubble3_1[i] = VetorInsertion3_1[i];
+        VetorBubble3_2[i] = VetorInsertion3_2[i];
+        VetorBubble3_3[i] = VetorInsertion3_3[i];
+    }
+
+    //INSERTION SORT
     int comparacoesInsertion = 0, trocasInsertion = 0;
 
 
     //TAMANHO 100
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio1, fim1;
+    
     inicio1 = clock();
     insertionSort(VetorInsertion1_1, SIZE_1, &comparacoesInsertion, &trocasInsertion);
     fim1 = clock();
-    double tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_1);
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_1);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
     printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
     
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio2, fim2;
-    inicio2 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion1_2, SIZE_1, &comparacoesInsertion, &trocasInsertion);
-    fim2 = clock();
-    double tempo2 = (double)(fim2 - inicio2) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_1);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Ordenado Ascendente (tamanho %d):\n", SIZE_1);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo2);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
 
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio3, fim3;
-    inicio3 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion1_3, SIZE_1, &comparacoesInsertion, &trocasInsertion);
-    fim3 = clock();
-    double tempo3 = (double)(fim3 - inicio3) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_1);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Ordenado Descendente (tamanho %d):\n", SIZE_1);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo3);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
 
 
 
     //TAMANHO 1000
-    comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio4, fim4;
-    inicio4 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion2_1, SIZE_2, &comparacoesInsertion, &trocasInsertion);
-    fim4 = clock();
-    double tempo4 = (double)(fim4 - inicio4) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_2);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_2);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo4);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
-    
+
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio5, fim5;
-    inicio5 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion2_2, SIZE_2, &comparacoesInsertion, &trocasInsertion);
-    fim5 = clock();
-    double tempo5 = (double)(fim5 - inicio5) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_2);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Ordenado Ascendente (tamanho %d):\n", SIZE_2);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo5);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
 
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio6, fim6;
-    inicio6 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion2_3, SIZE_2, &comparacoesInsertion, &trocasInsertion);
-    fim6 = clock();
-    double tempo6 = (double)(fim6 - inicio6) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_2);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Ordenado Descendente (tamanho %d):\n", SIZE_2);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo6);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
-
 
 
     //TAMANHO 10000
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio7, fim7;
-    inicio7 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion3_1, SIZE_3, &comparacoesInsertion, &trocasInsertion);
-    fim7 = clock();
-    double tempo7 = (double)(fim7 - inicio7) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_3);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_3);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo7);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
     
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio8, fim8;
-    inicio8 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion3_2, SIZE_3, &comparacoesInsertion, &trocasInsertion);
-    fim8 = clock();
-    double tempo8 = (double)(fim8 - inicio8) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_3);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Ordenado Ascendente (tamanho %d):\n", SIZE_3);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo8);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
 
     comparacoesInsertion = 0, trocasInsertion = 0;
-    clock_t inicio9, fim9;
-    inicio9 = clock();
+    inicio1 = clock();
     insertionSort(VetorInsertion3_3, SIZE_3, &comparacoesInsertion, &trocasInsertion);
-    fim9 = clock();
-    double tempo9 = (double)(fim9 - inicio9) / CLOCKS_PER_SEC;
-    printf("Insertion Sort (tamanho %d):\n", SIZE_3);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Insertion Sort Ordenado Descendente (tamanho %d):\n", SIZE_3);
     printf("Comparacoes: %d\n", comparacoesInsertion);
     printf("Trocas: %d\n", trocasInsertion);
-    printf("Tempo: %f segundos\n", tempo9);
+    printf("Tempo: %f segundos\n", tempo1);
     printf("\n");
+
+
+    //------------------------------------------------------------------------------------------------------
+    //SELECTION SORT
+    int comparacoesSelection = 0, trocasSelection = 0;
+
+    //TAMANHO 100
+    comparacoesSelection = 0, trocasSelection = 0;
+
+    inicio1 = clock();
+    selectionSort(VetorSelection1_1, SIZE_1, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection1_2, SIZE_1, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Ordenado Ascendente (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection1_3, SIZE_1, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Ordenado Descendente (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    //TAMANHO 1000
+    inicio1 = clock();
+    selectionSort(VetorSelection2_1, SIZE_2, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection2_2, SIZE_2, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Ordenado Ascendente (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection2_3, SIZE_2, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Ordenado Descendente (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    //TAMANHO 10000
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection3_1, SIZE_3, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection3_2, SIZE_3, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Ordenado Ascendente (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesSelection = 0, trocasSelection = 0;
+    inicio1 = clock();
+    selectionSort(VetorSelection3_3, SIZE_3, &comparacoesSelection, &trocasSelection);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Selection Sort Ordenado Descendente (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesSelection);
+    printf("Trocas: %d\n", trocasSelection);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+
+
+    //BUBBLE SORT
+    int comparacoesBubble = 0, trocasBubble = 0;
+
+    // TAMANHO 100
+    comparacoesBubble = 0, trocasBubble = 0;
+
+    inicio1 = clock();
+    bubbleSort(VetorBubble1_1, SIZE_1, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble1_2, SIZE_1, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Ordenado Ascendente (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble1_3, SIZE_1, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Ordenado Descendente (tamanho %d):\n", SIZE_1);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    // TAMANHO 1000
+    inicio1 = clock();
+    bubbleSort(VetorBubble2_1, SIZE_2, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble2_2, SIZE_2, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Ordenado Ascendente (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble2_3, SIZE_2, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Ordenado Descendente (tamanho %d):\n", SIZE_2);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    // TAMANHO 10000
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble3_1, SIZE_3, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Preenchido Aleatorio (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble3_2, SIZE_3, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Ordenado Ascendente (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
+    comparacoesBubble = 0, trocasBubble = 0;
+    inicio1 = clock();
+    bubbleSort(VetorBubble3_3, SIZE_3, &comparacoesBubble, &trocasBubble);
+    fim1 = clock();
+    tempo1 = (double)(fim1 - inicio1) / CLOCKS_PER_SEC;
+    printf("Bubble Sort Ordenado Descendente (tamanho %d):\n", SIZE_3);
+    printf("Comparacoes: %d\n", comparacoesBubble);
+    printf("Trocas: %d\n", trocasBubble);
+    printf("Tempo: %f segundos\n", tempo1);
+    printf("\n");
+
 
     return 0;
 }
